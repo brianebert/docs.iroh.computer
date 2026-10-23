@@ -32,6 +32,9 @@ Then navigate to your project's **Settings → API Keys** tab and click **Create
 
 The environment variable used by the Rust client is `IROH_SERVICES_API_SECRET` (named for legacy reasons; same thing as your API key).
 
+API keys do not expire automatically. A key remains valid until you delete it
+from your project.
+
 ## Use it in your app
 
 Pass the key to `iroh_services::preset()`, bind your endpoint with the preset,
@@ -67,7 +70,6 @@ token that:
 
 - Is bound to that endpoint's Endpoint ID
 - Grants only relay-use capability for the relay connection
-- Expires after 30 days by default
 
 The endpoint presents this token when it connects. The relay verifies the token
 signature, Endpoint ID, capability, and expiry, and checks that the issuing API
